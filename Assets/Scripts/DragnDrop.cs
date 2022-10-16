@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    [SerializeField] private Canvas canvas;
     public Color ColorChoice;
     private RectTransform rectTransform;
     private Vector3 origPos;
@@ -27,7 +28,7 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnDrag(PointerEventData eventData)
     {
         //throw new System.NotImplementedException();
-        rectTransform.anchoredPosition += eventData.delta;
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
