@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 101443038}
   - component: {fileID: 101443037}
   - component: {fileID: 101443040}
+  - component: {fileID: 101443041}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -250,7 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fd53a5ff53bca4bb3ee75bb8d5c7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorChoice: {r: 1, g: 0, b: 0, a: 1}
+  canvas: {fileID: 459812059}
+  ColorBase: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &101443038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +302,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &101443041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101443035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f536cb9ba95f57440b6fab315eb6c712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &443712260
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,10 +395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1980, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -474,7 +488,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.12322001, g: 0.3679245, b: 0.15324618, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -565,6 +579,7 @@ GameObject:
   - component: {fileID: 779034003}
   - component: {fileID: 779034002}
   - component: {fileID: 779034005}
+  - component: {fileID: 779034006}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -603,7 +618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fd53a5ff53bca4bb3ee75bb8d5c7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorChoice: {r: 0, g: 1, b: 0, a: 1}
+  canvas: {fileID: 459812059}
+  ColorBase: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &779034003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +669,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &779034006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779034000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f536cb9ba95f57440b6fab315eb6c712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1007381056
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 45}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007381058
@@ -761,7 +789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 137}
+  m_AnchoredPosition: {x: 40, y: 182}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361561615
@@ -837,7 +865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 138}
+  m_AnchoredPosition: {x: 16, y: 183}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557235507
@@ -915,6 +943,7 @@ GameObject:
   - component: {fileID: 1798938068}
   - component: {fileID: 1798938067}
   - component: {fileID: 1798938070}
+  - component: {fileID: 1798938071}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -953,7 +982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fd53a5ff53bca4bb3ee75bb8d5c7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorChoice: {r: 0, g: 0, b: 1, a: 1}
+  canvas: {fileID: 459812059}
+  ColorBase: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &1798938068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +1033,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1798938071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798938065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f536cb9ba95f57440b6fab315eb6c712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2097725130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,8 +1147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -341}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -298}
+  m_SizeDelta: {x: 220, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2128316781
 MonoBehaviour:
