@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
-    public void ColorChangerey(Color colorToChangeee)
+    public static Color colorChanger;
+    public void ColorChangery(Color colorToChange)
     {
-        colorToChangeee = Color.white;
+        colorChanger = colorToChange;
     }
 }

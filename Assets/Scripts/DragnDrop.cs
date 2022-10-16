@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
-    public Color ColorChoice;
+    public Color ColorBase;
+    private ColorChange ColorChoice;
     private RectTransform rectTransform;
     private Vector3 origPos;
     private CanvasGroup canvasGroup;
@@ -24,6 +25,7 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .75f;
         canvasGroup.blocksRaycasts = false;
+        ColorChange.colorChanger = ColorBase;
     }
     public void OnDrag(PointerEventData eventData)
     {
