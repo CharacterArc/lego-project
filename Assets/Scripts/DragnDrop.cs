@@ -25,7 +25,7 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .75f;
         canvasGroup.blocksRaycasts = false;
-        ColorChange.colorChanger = ColorBase;
+        ColorChange.colorChanger += ColorBase;
     }
     public void OnDrag(PointerEventData eventData)
     {

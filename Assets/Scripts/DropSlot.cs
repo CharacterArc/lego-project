@@ -8,25 +8,29 @@ using Image = UnityEngine.UI.Image;
 
 public class DropSlot : MonoBehaviour, IDropHandler
 {
-    DragnDrop ingrediant;
+    public AudioSource potionDrop;
+    public ParticleSystem potionDropEffect;
     [SerializeField] Image image;
     
     void Awake()
     {
-        ingrediant = GetComponent<DragnDrop>();
+        
     }
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
         if(eventData.pointerDrag != null)
         {
+            potionDrop.Play();
+            potionDropEffect.Play();
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             image.color = ColorChange.colorChanger;
         }
     }
 
-    public void ColorChanger()
+    public void ColorReset()
     {
-        image.color = Color.white;
+        ColorChange.colorChanger = Color.black;
+        image.color = ColorChange.colorChanger;
     }
 }
