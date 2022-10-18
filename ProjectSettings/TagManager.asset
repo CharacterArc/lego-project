@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - Ground
-  - PlacedBlock
-  - 
+  - Player
+  - BrickPlaced
   - 
   - 
   - 
