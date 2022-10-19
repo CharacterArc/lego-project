@@ -7,7 +7,8 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 {
     [SerializeField] private Canvas canvas;
     public Color ColorBase;
-    private ColorChange ColorChoice;
+    public int ItemCode;
+    private GlobalVars ColorChoice;
     private RectTransform rectTransform;
     private Vector3 origPos;
     private CanvasGroup canvasGroup;
@@ -25,7 +26,8 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .75f;
         canvasGroup.blocksRaycasts = false;
-        ColorChange.colorChanger += ColorBase;
+        GlobalVars.colorChanger = ColorBase;
+        GlobalVars.CodeHolder = ItemCode;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -44,5 +46,6 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         //throw new System.NotImplementedException();
         Debug.Log("OnPointerDown");
+        
     }
 }

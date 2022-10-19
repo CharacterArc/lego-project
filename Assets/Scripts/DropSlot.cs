@@ -24,13 +24,20 @@ public class DropSlot : MonoBehaviour, IDropHandler
             potionDrop.Play();
             potionDropEffect.Play();
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            image.color = ColorChange.colorChanger;
+            image.color += GlobalVars.colorChanger;
+            GlobalVars.WinCode += GlobalVars.CodeHolder.ToString();
+            if (GlobalVars.CompletionCode == GlobalVars.WinCode)
+            {
+                //do the wins stuff
+                Debug.Log("You Win!");
+            }
         }
     }
 
     public void ColorReset()
     {
-        ColorChange.colorChanger = Color.black;
-        image.color = ColorChange.colorChanger;
+        GlobalVars.colorChanger = Color.black;
+        image.color = GlobalVars.colorChanger;
+        GlobalVars.WinCode = "";
     }
 }
