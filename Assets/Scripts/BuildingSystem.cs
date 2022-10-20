@@ -95,6 +95,10 @@ public class BuildingSystem : MonoBehaviour
             {
                 PlaceBlock();
             }
+            if(Input.GetMouseButtonDown(1))
+            {
+                DestroyBlock();
+            }
         }
     }
 
@@ -104,5 +108,15 @@ public class BuildingSystem : MonoBehaviour
         Block tempBlock = bSys.allBlocks[blockSelectCounter];
         newBlock.name = tempBlock.blockName + "-Block";
         newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
+    }
+    void DestroyBlock()
+    {
+        RaycastHit pos;
+
+        if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out pos, 10))
+        {
+            if(pos.transform.tag == "BrickPlaced")
+                Destroy(pos.transform.gameObject);
+        }
     }
 }
