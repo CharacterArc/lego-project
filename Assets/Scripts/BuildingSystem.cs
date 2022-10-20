@@ -60,15 +60,18 @@ public class BuildingSystem : MonoBehaviour
         if (buildModeOn)
         {
             RaycastHit buildPosHit;
+            RaycastHit sphereHit;
             
 
             if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out buildPosHit, 10, buildableSurfacesLayer))
             {
                 Vector3 point = buildPosHit.point;
-                Vector3 normal = buildPosHit.normal;
                 if (buildPosHit.transform.tag == "BrickPlaced")
                 {
-                    buildPos = new Vector3(Mathf.Round(point.x + normal.x / 2), buildPosHit.collider.transform.position.y +1.2f, Mathf.Round(point.z + normal.z / 2));
+                    if((Physics.SphereCast(buildPosHit.collider.transform.position, .5f, transform.up, out sphereHit, 10)) == false)
+                    {
+                        buildPos = new Vector3(buildPosHit.collider.transform.position.x, buildPosHit.collider.transform.position.y + 1.2f, buildPosHit.collider.transform.position.z);
+                    }
                 }
                 else
                 {
@@ -116,6 +119,7 @@ public class BuildingSystem : MonoBehaviour
         Block tempBlock = bSys.allBlocks[blockSelectCounter];
         newBlock.name = tempBlock.blockName + "-Block";
         newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
+        buildPos = Vector3.zero;
     }
     void DestroyBlock()
     {
