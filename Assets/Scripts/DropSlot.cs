@@ -11,10 +11,11 @@ public class DropSlot : MonoBehaviour, IDropHandler
     public AudioSource potionDrop;
     public ParticleSystem potionDropEffect;
     [SerializeField] Image image;
+    private Color ogLiquidColor;
     
     void Awake()
     {
-        
+        ogLiquidColor = image.color;
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -36,7 +37,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
 
     public void ColorReset()
     {
-        GlobalVars.colorChanger = Color.black;
+        GlobalVars.colorChanger = ogLiquidColor;
         image.color = GlobalVars.colorChanger;
         GlobalVars.WinCode = "";
     }
