@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.Unity.VisualStudio.Editor;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,7 +8,8 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 {
     [SerializeField] private Canvas canvas;
     public Color ColorBase;
-    public int ItemCode;
+    public string ItemCode;
+    public Sprite SpriteIngrediant;
     private GlobalVars ColorChoice;
     private RectTransform rectTransform;
     private Vector3 origPos;
@@ -28,6 +30,7 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         canvasGroup.blocksRaycasts = false;
         GlobalVars.colorChanger = ColorBase;
         GlobalVars.CodeHolder = ItemCode;
+        GlobalVars.IngrediantSprite = SpriteIngrediant;
     }
     public void OnDrag(PointerEventData eventData)
     {

@@ -5,7 +5,8 @@ using UnityEngine;
 public class GlobalVars : MonoBehaviour
 {
     public static Color colorChanger;                   //passed to dropslot for color change
-    public static int CodeHolder;                       //passed from material to dropslot for wincode
+    public static string CodeHolder;                       //passed from material to dropslot for wincode
+    public static Sprite IngrediantSprite;              //passed from ingrediants to change the item in mortar
     public static int LevelCode = 0;                    //this updates whenever the correct combination of materials is given
     public static string WinCode = "";                  //the current set of materials in the pot
     public static string CompletionCode = "123";         //this is the combination of materials to win the game

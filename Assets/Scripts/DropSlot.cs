@@ -14,12 +14,12 @@ public class DropSlot : MonoBehaviour, IDropHandler
     public ParticleSystem potionDropEffect;
     public ParticleSystem potionWinEffect;
     public ParticleSystem potionLoseEffect;
-    [SerializeField] Image image;
+    [SerializeField] Image LiquidImage;
     private Color ogLiquidColor;
     
     void Awake()
     {
-        ogLiquidColor = image.color;
+        ogLiquidColor = LiquidImage.color;
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -29,20 +29,21 @@ public class DropSlot : MonoBehaviour, IDropHandler
             potionDrop.Play();
             potionDropEffect.Play();
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            image.color += GlobalVars.colorChanger;
-            GlobalVars.WinCode += GlobalVars.CodeHolder.ToString();
+            LiquidImage.color += GlobalVars.colorChanger;
+            GlobalVars.WinCode += GlobalVars.CodeHolder;
         }
     }
 
     public void ColorReset()
     {
         GlobalVars.colorChanger = ogLiquidColor;
-        image.color = GlobalVars.colorChanger;
+        LiquidImage.color = GlobalVars.colorChanger;
         GlobalVars.WinCode = "";
     }
 
     public void brewCompletion()
     {
+        Debug.Log("Code: " + GlobalVars.WinCode);
         if (GlobalVars.CompletionCode == GlobalVars.WinCode)
         {
             GlobalVars.LevelUp();
