@@ -6,10 +6,31 @@ public class GlobalVars : MonoBehaviour
 {
     public static Color colorChanger;                   //passed to dropslot for color change
     public static int CodeHolder;                       //passed from material to dropslot for wincode
+    public static int LevelCode = 0;                    //this updates whenever the correct combination of materials is given
     public static string WinCode = "";                  //the current set of materials in the pot
-    public const string CompletionCode = "123";         //this is the combination of materials to win the game
+    public static string CompletionCode = "123";         //this is the combination of materials to win the game
     public void ColorChangery(Color colorToChange)
     {
         colorChanger = colorToChange;
+    }
+
+    public static void LevelUp()              //this triggers every time a brew is successful
+    {
+        LevelCode++;
+        switch (LevelCode)
+        {
+            case 0:
+                CompletionCode = "123";
+                break;
+            case 1:
+                CompletionCode = "456";
+                break;
+            case 2:
+                CompletionCode = "3361211";
+                break;
+            default:
+                CompletionCode = "123";
+                break;
+        }
     }
 }
