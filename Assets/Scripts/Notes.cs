@@ -1,25 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Notes : MonoBehaviour
 {
-    public string message;
-    private bool showGui = false;
-
+    public Text txt;
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player") showGui = true;
+        if (col.gameObject.tag == "Player") txt.enabled = true;
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player") showGui = false;
-
+        if (col.gameObject.tag == "Player") txt.enabled = false;
     }
 
-    void OnGUI()
-    {
-        if (showGui) GUI.Box(new Rect(0, 0, 1080, 100), message);
-    }
 }
