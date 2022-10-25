@@ -38,6 +38,12 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private KeyCode runKey; // Run key, set in editor.
 
+    [SerializeField]
+    private KeyCode upKey; // Up key, set in editor.
+
+    [SerializeField]
+    private KeyCode downKey; // Down key, set in editor.
+
     private CharacterController cc; // Reference to attached CharacterController.
 
     [SerializeField]
@@ -68,13 +74,17 @@ public class PlayerMove : MonoBehaviour
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
 
+        float elevation=0;
+        if (Input.GetKey(upKey)) elevation = 1;
+        if (Input.GetKey(downKey)) elevation = -1;
+
         // Set speed to walk speed.
         currentSpeed = walkSpeed;
         // If player is pressing run key and moving forward, set speed to run speed.
         if (Input.GetKey(runKey) && Input.GetKey(KeyCode.W)) currentSpeed = runSpeed;
 
         // Get new move position based off input.
-        Vector3 moveDir = (transform.right * hor) + (transform.forward * ver);
+        Vector3 moveDir = (transform.right * hor) + (transform.forward * ver) + (transform.up * elevation) ;
 
         // Move CharController. 
         // .Move will not apply gravity, use SimpleMove if you want gravity.
