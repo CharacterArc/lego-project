@@ -67,7 +67,7 @@ public class BuildingSystem : MonoBehaviour
                 Vector3 point = buildPosHit.point;
                 if (buildPosHit.transform.tag == "BrickPlaced")
                 {
-                    if((Physics.SphereCast(buildPosHit.collider.transform.position, .5f, transform.up, out sphereHit, 10)) == false)
+                    if((Physics.SphereCast(buildPosHit.collider.transform.position, .5f, transform.up, out sphereHit, 1)) == false)
                     {
                         buildPos = new Vector3(buildPosHit.collider.transform.position.x, buildPosHit.collider.transform.position.y + 1.2f, buildPosHit.collider.transform.position.z);
                     }
