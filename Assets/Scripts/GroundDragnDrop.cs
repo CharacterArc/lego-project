@@ -11,7 +11,7 @@ public class GroundDragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     [SerializeField] private Canvas canvas;
     private Color ColorBase;
     public Image GroundImage;
-    private Sprite EmptyMortar;
+    public Sprite EmptyMortar;
     private string ItemCode = "";
     private string ItemType = "";
     private RectTransform rectTransform;
@@ -20,6 +20,7 @@ public class GroundDragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     public Sprite CoarseIngrediant;
     public Sprite MediumIngrediant;
     public Sprite FineIngrediant;
+    public Sprite Blank;
 
     private void Awake()
     {
@@ -90,8 +91,9 @@ public class GroundDragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
 
     public void GroundReset()
     {
-        GroundImage.sprite = EmptyMortar;
+        GroundImage.sprite = Blank;
         GroundImage.color = Color.white;
+        ItemCode = "";
     }
 }
 

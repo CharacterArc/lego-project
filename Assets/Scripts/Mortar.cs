@@ -17,6 +17,7 @@ public class Mortar : MonoBehaviour, IDropHandler
     [SerializeField] Text texture;
     [SerializeField] AudioSource MortarDrop;
     [SerializeField] AudioSource GrindNoise;
+    public GameObject obj;
 
     public void Awake()
     {
@@ -35,6 +36,7 @@ public class Mortar : MonoBehaviour, IDropHandler
             ItemCode = GlobalVars.CodeHolder;
             MortorColor = GlobalVars.colorChanger;
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            obj.SetActive(true);
         }
     }
 
