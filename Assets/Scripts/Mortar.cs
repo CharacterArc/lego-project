@@ -67,5 +67,6 @@ public class Mortar : MonoBehaviour, IDropHandler
         TimesGrinded = 0;
         texture.text = "";
         HeldIngrediant.sprite = EmptyMortar;
+        ItemCode = "";
     }
 }
