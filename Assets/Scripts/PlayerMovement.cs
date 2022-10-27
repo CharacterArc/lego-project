@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         coll = GetComponent<BoxCollider2D>();
-        Debug.Log("Hello world!");
     }
 
     // Update is called once per frame
