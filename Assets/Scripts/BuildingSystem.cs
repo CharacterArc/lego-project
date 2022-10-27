@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BuildingSystem : MonoBehaviour
 {
-
     [SerializeField]
     private Camera playerCamera;
 
