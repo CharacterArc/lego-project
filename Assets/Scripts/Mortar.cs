@@ -44,6 +44,8 @@ public class Mortar : MonoBehaviour, IDropHandler
     {
         if (ItemCode != "")
         {
+            GlobalVars.grinding = true;
+            Debug.Log(GlobalVars.grinding);
             TimesGrinded++;
             GrindNoise.Play();
             if (TimesGrinded >= 1 && TimesGrinded < 5)
