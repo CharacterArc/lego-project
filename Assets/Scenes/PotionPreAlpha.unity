@@ -17433,11 +17433,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 459812059}
   GroundImage: {fileID: 1770084831}
-  EmptyMortar: {fileID: 0}
   CoarseIngrediant: {fileID: 21300000, guid: ed2a42dd41943764eb15b7b146b6a0e1, type: 3}
   MediumIngrediant: {fileID: 21300000, guid: 8aa6807d3142e44439797c50c6db17fe, type: 3}
   FineIngrediant: {fileID: 21300000, guid: 17b4f64269c75894ab2ccea095f67979, type: 3}
-  Blank: {fileID: 0}
+  obj: {fileID: 1443158137}
+  self: {fileID: 1770084827}
+  texture: {fileID: 788612775}
+  empty: {fileID: 21300000, guid: b5e9058bcc25fd94691358b07eaf3056, type: 3}
+  HeldIngrediant: {fileID: 2129209310}
 --- !u!225 &1770084830
 CanvasGroup:
   m_ObjectHideFlags: 0
