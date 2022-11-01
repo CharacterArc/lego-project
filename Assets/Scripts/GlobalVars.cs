@@ -29,7 +29,7 @@ public class GlobalVars : MonoBehaviour
                 CompletionCode = "456";
                 break;
             case 2:
-                CompletionCode = "3361211";
+                CompletionCode = "123456";
                 break;
             default:
                 CompletionCode = "123";
