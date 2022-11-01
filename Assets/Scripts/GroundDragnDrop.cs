@@ -9,9 +9,10 @@ using Image = UnityEngine.UI.Image;
 public class GroundDragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
+    
     private Color ColorBase;
     public Image GroundImage;
-    public Sprite EmptyMortar;
+    
     private string ItemCode = "";
     private string ItemType = "";
     private RectTransform rectTransform;
@@ -20,8 +21,13 @@ public class GroundDragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     public Sprite CoarseIngrediant;
     public Sprite MediumIngrediant;
     public Sprite FineIngrediant;
-    public Sprite Blank;
-
+    //moratar reset
+    public GameObject obj;
+    public GameObject self;
+    [SerializeField] Text texture;
+    public Sprite empty;
+    private Sprite EmptyMortar;
+    public Image HeldIngrediant;
     private void Awake()
     {
         EmptyMortar = GroundImage.sprite;
@@ -57,6 +63,21 @@ public class GroundDragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         rectTransform.anchoredPosition = origPos;
+
+        if (GlobalVars.dropped == true)
+        {
+            Debug.Log("Dropped true");
+            GlobalVars.dropped = false;
+
+
+            GroundReset();
+            obj.SetActive(false);
+            self.SetActive(false);
+            texture.text = "";
+            HeldIngrediant.sprite = empty;
+            //mortar. = blankIngrediant;
+        }
+
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -91,7 +112,7 @@ public class GroundDragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
 
     public void GroundReset()
     {
-        GroundImage.sprite = Blank;
+        GroundImage.sprite = EmptyMortar;
         GroundImage.color = Color.white;
         ItemCode = "";
     }

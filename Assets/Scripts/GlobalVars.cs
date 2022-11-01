@@ -11,6 +11,7 @@ public class GlobalVars : MonoBehaviour
     public static string WinCode = "";                  //the current set of materials in the pot
     public static string CompletionCode = "123";         //this is the combination of materials to win the game
     public static bool grinding = false;
+    public static bool dropped = false;
     public void ColorChangery(Color colorToChange)
     {
         colorChanger = colorToChange;

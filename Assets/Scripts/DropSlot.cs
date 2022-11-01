@@ -31,6 +31,13 @@ public class DropSlot : MonoBehaviour, IDropHandler
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             LiquidImage.color += GlobalVars.colorChanger;
             GlobalVars.WinCode += GlobalVars.CodeHolder;
+
+            if (GlobalVars.WinCode != "1" || GlobalVars.WinCode != "2" || GlobalVars.WinCode != "3" || GlobalVars.WinCode != "4" || GlobalVars.WinCode != "5" || GlobalVars.WinCode != "6")
+            {
+                GlobalVars.dropped = true;
+            }
+
+
         }
     }
 
