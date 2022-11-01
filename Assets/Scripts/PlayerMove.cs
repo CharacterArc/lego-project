@@ -47,7 +47,7 @@ public class PlayerMove : MonoBehaviour
     private CharacterController cc; // Reference to attached CharacterController.
 
     [SerializeField]
-    private GameObject playerCamera; // Player cam, set in editor.
+    public Camera playerCamera; // Player cam, set in editor.
 
     private void Start()
     {
