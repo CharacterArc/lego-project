@@ -22,7 +22,8 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField]
     private GameObject blockTemplatePrefab;
     [SerializeField]
-    private GameObject blockPrefab;
+    public GameObject[] blockPrefab = new GameObject[8];
+    private int blockSelect=1;
 
     [SerializeField]
     private Material templateMaterial;
@@ -54,6 +55,39 @@ public class BuildingSystem : MonoBehaviour
         {
             blockSelectCounter++;
             if (blockSelectCounter >= bSys.allBlocks.Count) blockSelectCounter = 0;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            blockSelect = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            blockSelect = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            blockSelect = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            blockSelect = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            blockSelect = 4;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            blockSelect = 5;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            blockSelect = 6;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            blockSelect = 7;
         }
 
         if (buildModeOn)
@@ -114,7 +148,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void PlaceBlock()
     {
-        GameObject newBlock = Instantiate(blockPrefab, buildPos, Quaternion.identity);
+        GameObject newBlock = Instantiate(blockPrefab[blockSelect], buildPos, Quaternion.identity);
         Block tempBlock = bSys.allBlocks[blockSelectCounter];
         newBlock.name = tempBlock.blockName + "-Block";
         newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
