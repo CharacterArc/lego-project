@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private BoxCollider2D coll;
+    private bool enableMovement = true;
 
     [SerializeField] private LayerMask jumpableGround;
 
@@ -30,10 +32,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (enableMovement == true)
+            {
+                enableMovement = false;
+            }
+            else if (enableMovement == false)
+            {
+                enableMovement = true;
+            }
+        }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (enableMovement == true)
+        {
+            dirX = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        }
+
+        if (Input.GetButtonDown("Jump") && IsGrounded() && enableMovement==true)
         {
             rb.velocity = new Vector3(0, jumpForce, 0);
             jumpSound.Play();
