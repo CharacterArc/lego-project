@@ -70,7 +70,7 @@ public class BuildingSystem : MonoBehaviour
                     
                     for(int i = 0; i < 10; i++)
                     {
-                        Collider[] hitColliders = Physics.OverlapBox(pointObj, transform.localScale / 2, Quaternion.identity, buildableSurfacesLayer);
+                        Collider[] hitColliders = Physics.OverlapBox(pointObj, transform.localScale / 3, Quaternion.identity, buildableSurfacesLayer);
                         posCheck = hitColliders.Length == 0;
                         if (posCheck)
                         {

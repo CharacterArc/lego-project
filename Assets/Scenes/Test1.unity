@@ -451,6 +451,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2676843685189621486, guid: d56fd598679bb9847997ac53314d4995,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2385493112778749494, guid: d56fd598679bb9847997ac53314d4995,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -774,6 +779,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 365118424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &836394096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836394091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f6c50ea3d3d2445b2efe4cf36941c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &871953872
 GameObject:
   m_ObjectHideFlags: 0
@@ -34294,6 +34311,11 @@ PrefabInstance:
       propertyPath: downKey
       value: 306
       objectReference: {fileID: 0}
+    - target: {fileID: 4922980735507747727, guid: 15a53cefbf6be68479f593b7bfef27bc,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 327377708}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a53cefbf6be68479f593b7bfef27bc, type: 3}
 --- !u!64 &4925027251834769672
