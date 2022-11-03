@@ -93,20 +93,33 @@ public class BuildingSystem : MonoBehaviour
         if (buildModeOn)
         {
             RaycastHit buildPosHit;
-            RaycastHit sphereHit;
-            
+            var posCheck = false;
 
             if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out buildPosHit, 10, buildableSurfacesLayer))
             {
                 Vector3 point = buildPosHit.point;
+                Vector3 pointObj = buildPosHit.collider.transform.position;
                 if (buildPosHit.transform.tag == "BrickPlaced")
                 {
-                    if((Physics.SphereCast(buildPosHit.collider.transform.position, .5f, transform.up, out sphereHit, 1)) == false)
+                    
+                    for(int i = 0; i < 10; i++)
                     {
-                        buildPos = new Vector3(buildPosHit.collider.transform.position.x, buildPosHit.collider.transform.position.y + 1.2f, buildPosHit.collider.transform.position.z);
+                        Collider[] hitColliders = Physics.OverlapBox(pointObj, transform.localScale / 3, Quaternion.identity, buildableSurfacesLayer);
+                        posCheck = hitColliders.Length == 0;
+                        if (posCheck)
+                        {
+                            posCheck = true;
+                            break;
+                        }
+                        pointObj.y += 1.2f;
+                    }
+                    if (posCheck)
+                    {
+                        buildPos = new Vector3(buildPosHit.collider.transform.position.x, pointObj.y - 1.2f, buildPosHit.collider.transform.position.z);
+                        pointObj = buildPosHit.collider.transform.position;
                     }
                 }
-                else
+                else 
                 {
                     buildPos = new Vector3(Mathf.Round(point.x), Mathf.Round(point.y), Mathf.Round(point.z));
                 }
