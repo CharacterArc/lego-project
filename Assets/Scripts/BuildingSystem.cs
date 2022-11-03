@@ -23,7 +23,7 @@ public class BuildingSystem : MonoBehaviour
     private GameObject blockTemplatePrefab;
     [SerializeField]
     public GameObject[] blockPrefab = new GameObject[8];
-    private int blockSelect=1;
+    private int blockSelect=0;
 
     [SerializeField]
     private Material templateMaterial;
