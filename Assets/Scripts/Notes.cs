@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class Notes : MonoBehaviour
 {
-    public Text txt;
+    [SerializeField] private Text txt;
+    [SerializeField] private Image back;
+    [SerializeField] private Image levelback;
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject.tag == "Player") back.enabled = true;
         if (col.gameObject.tag == "Player") txt.enabled = true;
+        if (col.gameObject.tag == "Player") levelback.enabled = true;
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player") txt.enabled = false;
+        if (col.gameObject.tag == "Player") back.enabled = false;
     }
 
 }
