@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private BoxCollider2D coll;
-    private bool enableMovement = true;
+    public bool enableMovement = true;
+    public bool dead = false;
 
     [SerializeField] private LayerMask jumpableGround;
 
@@ -44,13 +45,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (enableMovement == true)
+        if (enableMovement == true && dead == false)
         {
             dirX = Input.GetAxisRaw("Horizontal");
             rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
         }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() && enableMovement==true)
+        if (Input.GetButtonDown("Jump") && IsGrounded() && enableMovement==true && dead == false)
         {
             rb.velocity = new Vector3(0, jumpForce, 0);
             jumpSound.Play();

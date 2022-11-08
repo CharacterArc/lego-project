@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    private AudioSource goalSound;
+    [SerializeField] private AudioSource goalSound;
     private bool Enter = false;
+    public GameObject next;
+    private GameObject player;
 
     // Start is called before the first frame update
     private void Start()
     {
-        goalSound = GetComponent<AudioSource>();
-
+        player = GameObject.FindWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +32,7 @@ public class Goal : MonoBehaviour
         {
             if (Input.GetButtonDown("Submit"))
             {
+                goalSound.Play();
                 CompleteLevel();
             }
         }
@@ -38,6 +40,7 @@ public class Goal : MonoBehaviour
 
     private void CompleteLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        player.transform.position = new Vector2(next.transform.position.x, next.transform.position.y+2);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

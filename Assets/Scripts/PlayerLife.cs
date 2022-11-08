@@ -10,10 +10,13 @@ public class PlayerLife : MonoBehaviour
 
     [SerializeField] AudioSource deathSound;
 
+    private Vector2 respawnPoint;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         pm = GetComponent<PlayerMovement>();
+        respawnPoint = transform.position;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -23,16 +26,24 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
+    }
+
     private void Die()
     {
         anim.SetTrigger("death");
-        pm.moveSpeed = 0f;
-        pm.jumpForce = 0f;
+        pm.dead = true;
         deathSound.Play();
     }
 
     private void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        transform.position = respawnPoint;
+        pm.dead = false;
     }
 }
