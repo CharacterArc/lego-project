@@ -40,7 +40,7 @@ public class Goal : MonoBehaviour
 
     private void CompleteLevel()
     {
-        player.transform.position = new Vector2(next.transform.position.x, next.transform.position.y+7);
+        player.transform.position = new Vector2(next.transform.position.x-1, next.transform.position.y+5);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
