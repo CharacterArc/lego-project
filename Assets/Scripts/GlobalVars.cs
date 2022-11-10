@@ -23,7 +23,7 @@ public class GlobalVars : MonoBehaviour
         switch (LevelCode)
         {
             case 0:
-                CompletionCode = "123";
+                CompletionCode = "1M23";
                 break;
             case 1:
                 CompletionCode = "456";
