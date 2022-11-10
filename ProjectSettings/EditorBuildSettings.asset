@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PotionRun_1.unity
     guid: cb5d0880d7e5b744d82ce3ad92b6f3f3
   - enabled: 1
-    path: Assets/Scenes/PotionRun_2.unity
-    guid: 5646803a37311734c818eef7566d8e99
+    path: Assets/WebRtcVideoChat/callapp/callscene.unity
+    guid: b98ae981d63c0334794074d37f185f04
   - enabled: 1
-    path: Assets/Scenes/PotionRun_3.unity
-    guid: 23e6751e44e77a34aade97b3c2b0c28d
+    path: Assets/WebRtcVideoChat/callapp/test.unity
+    guid: 6e9001c4eddf2a54f8d2964cd8360253
   m_configObjects: {}
