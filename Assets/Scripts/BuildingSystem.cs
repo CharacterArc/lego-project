@@ -5,6 +5,9 @@ using UnityEngine;
 public class BuildingSystem : MonoBehaviour
 {
     [SerializeField]
+    private LayerMask destroyMask;
+
+    [SerializeField]
     private Camera playerCamera;
 
     private bool buildModeOn = false;
@@ -37,6 +40,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
+        
         if (Input.GetKeyDown("e"))
         {
             buildModeOn = !buildModeOn;
@@ -127,7 +131,7 @@ public class BuildingSystem : MonoBehaviour
             }
             else
             {
-                Destroy(currentTemplateBlock.gameObject);
+                Destroy(currentTemplateBlock);
                 canBuild = false;
             }
         }
@@ -140,7 +144,7 @@ public class BuildingSystem : MonoBehaviour
 
         if (canBuild && currentTemplateBlock == null)
         {
-            currentTemplateBlock = Instantiate(blockTemplatePrefab, buildPos, Quaternion.identity);
+            currentTemplateBlock = Instantiate(blockPrefab[blockSelect], buildPos, Quaternion.identity);
             currentTemplateBlock.GetComponent<MeshRenderer>().material = templateMaterial;
         }
 
@@ -162,18 +166,15 @@ public class BuildingSystem : MonoBehaviour
     private void PlaceBlock()
     {
         GameObject newBlock = Instantiate(blockPrefab[blockSelect], buildPos, Quaternion.identity);
-        Block tempBlock = bSys.allBlocks[blockSelectCounter];
-        newBlock.name = tempBlock.blockName + "-Block";
-        newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
         buildPos = Vector3.zero;
+        newBlock.tag = newBlock.name;
     }
     void DestroyBlock()
     {
         RaycastHit pos;
-
-        if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out pos, 10))
+        if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out pos, 10, destroyMask))
         {
-            if(pos.transform.tag == "BrickPlaced")
+            if(pos.transform.tag == "cat")
                 Destroy(pos.transform.gameObject);
         }
     }

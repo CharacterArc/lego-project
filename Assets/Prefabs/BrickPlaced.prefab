@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5157404028643388931}
   - component: {fileID: 8018070896895268681}
   - component: {fileID: 6800526554522989533}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: -2676843685189621486}
   - component: {fileID: 6568978712113493483}
   - component: {fileID: -2385493112778749494}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: BrickPlaced
   m_TagString: Untagged
   m_Icon: {fileID: 0}

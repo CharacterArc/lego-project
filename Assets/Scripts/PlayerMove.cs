@@ -89,5 +89,7 @@ public class PlayerMove : MonoBehaviour
         // Move CharController. 
         // .Move will not apply gravity, use SimpleMove if you want gravity.
         cc.Move(moveDir * currentSpeed * Time.deltaTime);
+
+        //Press enter button -> if correct blocks are in place then game win else reset game from scratch.
     }
 }
