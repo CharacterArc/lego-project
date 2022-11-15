@@ -8,6 +8,7 @@ public class PlayerLife : MonoBehaviour
     private Animator anim;
     private PlayerMovement pm;
 
+    [SerializeField] GameObject levelrm;
     [SerializeField] AudioSource deathSound;
 
     private Vector2 respawnPoint;
@@ -17,6 +18,14 @@ public class PlayerLife : MonoBehaviour
         anim = GetComponent<Animator>();
         pm = GetComponent<PlayerMovement>();
         respawnPoint = transform.position;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            LevelRoom();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -39,6 +48,10 @@ public class PlayerLife : MonoBehaviour
         anim.SetTrigger("death");
         pm.dead = true;
         deathSound.Play();
+    }
+    private void LevelRoom()
+    {
+        transform.position = new Vector2(levelrm.transform.position.x - 1, levelrm.transform.position.y + 5);
     }
 
     private void RestartLevel()
