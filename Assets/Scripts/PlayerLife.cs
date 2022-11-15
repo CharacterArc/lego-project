@@ -9,6 +9,7 @@ public class PlayerLife : MonoBehaviour
     private PlayerMovement pm;
 
     [SerializeField] GameObject levelrm;
+    [SerializeField] AudioSource changeSound;
     [SerializeField] AudioSource deathSound;
 
     private Vector2 respawnPoint;
@@ -51,6 +52,7 @@ public class PlayerLife : MonoBehaviour
     }
     private void LevelRoom()
     {
+        changeSound.Play();
         transform.position = new Vector2(levelrm.transform.position.x - 1, levelrm.transform.position.y + 5);
     }
 
