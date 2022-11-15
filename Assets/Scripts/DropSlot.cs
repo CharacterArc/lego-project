@@ -14,9 +14,11 @@ public class DropSlot : MonoBehaviour, IDropHandler
     public ParticleSystem potionDropEffect;
     public ParticleSystem potionWinEffect;
     public ParticleSystem potionLoseEffect;
+    public HideShowObject wintext;
     [SerializeField] Image LiquidImage;
     private Color ogLiquidColor;
     
+
     void Awake()
     {
         ogLiquidColor = LiquidImage.color;
@@ -54,6 +56,11 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (GlobalVars.CompletionCode == GlobalVars.WinCode)
         {
             GlobalVars.LevelUp();
+            if (GlobalVars.LevelCode == 3)
+            {
+                wintext.show();
+                GlobalVars.started = false;
+            }
             //do the wins stuff
             Debug.Log("You Win!");
             potionWin.Play();

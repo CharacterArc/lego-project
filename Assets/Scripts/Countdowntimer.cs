@@ -13,6 +13,7 @@ public class Countdowntimer : MonoBehaviour
     int min, sec;
     string minT;
     public AudioSource potionLose;
+    public HideShowObject losetext;
 
     [SerializeField] Text countdown;
 
@@ -56,8 +57,9 @@ public class Countdowntimer : MonoBehaviour
             }
             else
             {
-               countdown.text = "0:00";
-               potionLose.Play();
+                countdown.text = "0:00";
+                losetext.show();
+                potionLose.Play();
             }
         }
     }

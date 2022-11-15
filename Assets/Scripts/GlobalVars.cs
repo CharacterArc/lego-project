@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,9 @@ public class GlobalVars : MonoBehaviour
                 break;
             case 2:
                 CompletionCode = "123456";
+                break;
+            case 3:
+                CompletionCode = "123";
                 break;
             default:
                 CompletionCode = "123";
