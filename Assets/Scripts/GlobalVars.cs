@@ -12,6 +12,7 @@ public class GlobalVars : MonoBehaviour
     public static string CompletionCode = "123";         //this is the combination of materials to win the game
     public static bool grinding = false;
     public static bool dropped = false;
+    public static bool started = false;
     public void ColorChangery(Color colorToChange)
     {
         colorChanger = colorToChange;

@@ -25,36 +25,45 @@ public class Countdowntimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        min = Convert.ToInt32(currentTime) / 60;
-        sec = Convert.ToInt32(currentTime - (min * 60));
-        minT = min.ToString();
-        if (currentTime >= 0)
-        {
-            if (sec == 0)
+
+        if (GlobalVars.started == true)
+        { 
+            currentTime -= 1 * Time.deltaTime;
+            min = Convert.ToInt32(currentTime) / 60;
+            sec = Convert.ToInt32(currentTime - (min * 60));
+            minT = min.ToString();
+            if (currentTime >= 0)
             {
-                countdown.text = minT + ":" + "00";
-            }
-            else if ((currentTime % 60) == 0)
-            {
-                countdown.text = minT + ":" + "00";
+                if (sec == 0)
+                {
+                    countdown.text = minT + ":" + "00";
+               }
+               else if ((currentTime % 60) == 0)
+               {
+                   countdown.text = minT + ":" + "00";
+               }
+               else
+               {
+                    if ((currentTime % 60) < 10)
+                   {
+                       countdown.text = minT + ":" + "0" + (currentTime % 60).ToString("0");
+                   }
+                   else
+                   {
+                       countdown.text = minT + ":" + (currentTime % 60).ToString("0");
+                   }
+               }
             }
             else
             {
-                if ((currentTime % 60) < 10)
-                {
-                    countdown.text = minT + ":" + "0" + (currentTime % 60).ToString("0");
-                }
-                else
-                {
-                    countdown.text = minT + ":" + (currentTime % 60).ToString("0");
-                }
+               countdown.text = "0:00";
+               potionLose.Play();
             }
         }
-        else
-        {
-            countdown.text = "0:00";
-            potionLose.Play();
-        }
+    }
+
+    public void gamestart()              //game has begun
+    {
+        GlobalVars.started = true;
     }
 }

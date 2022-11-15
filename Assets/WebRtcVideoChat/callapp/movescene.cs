@@ -36,20 +36,31 @@ public class movescene : MonoBehaviour
             child.transform.SetParent(null);
 
 
-            
+
             //SceneManager.LoadScene(level2);
             SceneManager.LoadScene(level2, LoadSceneMode.Additive);
+            //SceneManager.LoadScene(yourNexScene);
             //SceneManager.LoadScene(level2, LoadSceneMode.Single);
             //transform.position = new Vector2(0, 50);
+            
 
 
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(level2, LoadSceneMode.Single);
 
+
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName(level2));
+            //SceneManager.SetActiveScene(yourNexScene);
             //yourNexScene = SceneManager.GetSceneByName("test");
             yourNexScene = SceneManager.GetSceneAt(1); //scene 4
-
+            //yourNexScene = SceneManager.GetSceneByBuildIndex(3); //scene 4
+            //yourNexScene = SceneManager.GetActiveScene(); //scene 4
+            //SceneManager.LoadScene(level2);
+            Debug.Log(yourNexScene.name);
+            
 
             SceneManager.MoveGameObjectToScene(child, yourNexScene);
-
+            //SceneManager.LoadScene(level2, LoadSceneMode.Single);
             //parentobj = GameObject.Find("Canvas1s");
             //parent = parentobj.transform;
 
@@ -60,7 +71,9 @@ public class movescene : MonoBehaviour
             //child.transform.SetParent(parent);
 
 
-            SceneManager.UnloadSceneAsync(0);
+            //SceneManager.UnloadSceneAsync(0);
+            //SceneManager.UnloadSceneAsync(3);
+            //SceneManager.SetActiveScene(yourNexScene);
 
 
 
