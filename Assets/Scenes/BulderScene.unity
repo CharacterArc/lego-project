@@ -1109,6 +1109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 1784490855}
+  chat: {fileID: 0}
 --- !u!4 &1053386122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5756431078448963419, guid: d56fd598679bb9847997ac53314d4995,
