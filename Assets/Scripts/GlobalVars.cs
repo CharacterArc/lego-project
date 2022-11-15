@@ -9,7 +9,7 @@ public class GlobalVars : MonoBehaviour
     public static Sprite IngrediantSprite;              //passed from ingrediants to change the item in mortar
     public static int LevelCode = 0;                    //this updates whenever the correct combination of materials is given
     public static string WinCode = "";                  //the current set of materials in the pot
-    public static string CompletionCode = "123";         //this is the combination of materials to win the game
+    public static string CompletionCode = "1M23";         //this is the combination of materials to win the game
     public static bool grinding = false;
     public static bool dropped = false;
     public static bool started = false;
@@ -27,7 +27,7 @@ public class GlobalVars : MonoBehaviour
                 CompletionCode = "1M23";
                 break;
             case 1:
-                CompletionCode = "456";
+                CompletionCode = "C4F5C6";
                 break;
             case 2:
                 CompletionCode = "123456";
