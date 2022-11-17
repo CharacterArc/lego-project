@@ -129884,13 +129884,13 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '1. Course Pink Crystal
 
-    2. Course Teal Leaf
+    2. Fine Teal Leaf
 
-    3. Course Yellow
-    Rock
+    3. Course Yellow Rock
 
 
-    Press ''E'' or ''Enter'' for next level'
+    Press
+    ''E'' or ''Enter'' for next level'
 --- !u!222 &796332874
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -132459,7 +132459,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Toggle Movement with 'Tab'\n\u2190 or 'A' move left | move right 'D' or
-    \u2192\nSpacebar to jump\nR to move to Level Room"
+    \u2192\n'Spacebar' to jump\n'R' to move to Level Room"
 --- !u!1001 &1881857845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133448,7 +133448,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '1. Red Mushroom
 
-    2. Medium Grind Green Mushroom
+    2. Medium Green Mushroom
 
     3. Blue Mushroom
 
@@ -133778,7 +133778,7 @@ PrefabInstance:
         type: 3}
       propertyPath: next
       value: 
-      objectReference: {fileID: 1488994095}
+      objectReference: {fileID: 1601701491}
     - target: {fileID: 4579778234824273167, guid: 9d72972d5933b8e4c8a78a594b60d31a,
         type: 3}
       propertyPath: goalSound
@@ -133882,6 +133882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tutorial_Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 5725078865615279080, guid: 78b6eb60d17d99c4b804699f327ef423,
+        type: 3}
+      propertyPath: m_TagString
+      value: Checkpoint
       objectReference: {fileID: 0}
     - target: {fileID: 5725078865615279081, guid: 78b6eb60d17d99c4b804699f327ef423,
         type: 3}

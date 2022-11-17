@@ -53,7 +53,7 @@ public class PlayerLife : MonoBehaviour
     private void LevelRoom()
     {
         changeSound.Play();
-        transform.position = new Vector2(levelrm.transform.position.x - 1, levelrm.transform.position.y + 5);
+        transform.position = new Vector2(levelrm.transform.position.x + 5, levelrm.transform.position.y + 3);
     }
 
     private void RestartLevel()

@@ -38,6 +38,8 @@ public class Goal : MonoBehaviour
         }
     }
 
+
+
     private void CompleteLevel()
     {
         player.transform.position = new Vector2(next.transform.position.x-1, next.transform.position.y+5);
