@@ -18,7 +18,7 @@ public class GlobalVars : MonoBehaviour
     {
         colorChanger = colorToChange;
     }
-
+    // 1 red, 2 green, 3 blue, 4 pink, 5 yellow, 6 teal
     public static void LevelUp()              //this triggers every time a brew is successful
     {
         LevelCode++;
@@ -31,7 +31,7 @@ public class GlobalVars : MonoBehaviour
                 CompletionCode = "C4F5C6";
                 break;
             case 2:
-                CompletionCode = "33F51M4M26";
+                CompletionCode = "33F51M4M4M26";
                 break;
             case 3:
                 CompletionCode = "123";
