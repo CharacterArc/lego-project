@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelChecker : MonoBehaviour
 {
-    
+    [SerializeField]
+    public TextMeshProUGUI gameEnd;
+
     private void Awake()
     {
         
@@ -31,13 +35,13 @@ public class LevelChecker : MonoBehaviour
         Interactable[] bricks = FindObjectsOfType<Interactable>();
         for(int i=0; i<bricks.Length; i++)
         {
-            if(!bricks[i].condition)
+            if(gameObject.GetComponent<PointsUI>().allPoints != 7)
             {
-                print("Lost Game");
+                gameEnd.text = "Not Enough Blocks";
                 return false;
             }
         }
-        print("Win Game");
+        gameEnd.text = "You Win!";
         return true;
         
     }

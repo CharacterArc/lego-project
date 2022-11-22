@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingSystem : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask destroyMask;
+    private LayerMask BuildMask;
 
     [SerializeField]
     private Camera playerCamera;
@@ -17,6 +17,8 @@ public class BuildingSystem : MonoBehaviour
 
     [SerializeField]
     private LayerMask buildableSurfacesLayer;
+
+
 
     private Vector3 buildPos;
 
@@ -99,7 +101,11 @@ public class BuildingSystem : MonoBehaviour
             RaycastHit buildPosHit;
             var posCheck = false;
 
-            if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out buildPosHit, 10, buildableSurfacesLayer))
+            if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out buildPosHit, 10, BuildMask))
+            {
+            }
+
+            else if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out buildPosHit, 10, buildableSurfacesLayer))
             {
                 Vector3 point = buildPosHit.point;
                 Vector3 pointObj = buildPosHit.collider.transform.position;
@@ -156,10 +162,11 @@ public class BuildingSystem : MonoBehaviour
             {
                 PlaceBlock();
             }
-            if(Input.GetMouseButtonDown(1))
+            /*if(Input.GetMouseButtonDown(1))
             {
                 DestroyBlock();
             }
+            */
         }
     }
 
@@ -168,8 +175,9 @@ public class BuildingSystem : MonoBehaviour
         GameObject newBlock = Instantiate(blockPrefab[blockSelect], buildPos, Quaternion.identity);
         buildPos = Vector3.zero;
         newBlock.tag = newBlock.name;
+        newBlock.layer = LayerMask.NameToLayer("Build");
     }
-    void DestroyBlock()
+    /*void DestroyBlock()
     {
         RaycastHit pos;
         if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out pos, 10, destroyMask))
@@ -178,4 +186,5 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(pos.transform.gameObject);
         }
     }
+    */
 }

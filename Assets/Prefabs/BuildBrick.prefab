@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5709015936721802987}
-  - component: {fileID: 6485602342323789986}
   - component: {fileID: 6625146327456054363}
   - component: {fileID: 6790736134546538618}
-  - component: {fileID: -3258963606102231893}
+  - component: {fileID: 6866559796779275249}
   m_Layer: 9
   m_Name: BuildBrick
   m_TagString: BuildBlock
@@ -34,20 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6485602342323789986
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4931915566172114001}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 8f62fc8e18670754ba0eb0e2ce9bdebe, type: 3}
 --- !u!33 &6625146327456054363
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,20 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-3258963606102231893
-MonoBehaviour:
+--- !u!65 &6866559796779275249
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4931915566172114001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4c9d19f3d3cb0e4bad29d35b3f90f55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: 
-  condition: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 256
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 1.204, z: 0}

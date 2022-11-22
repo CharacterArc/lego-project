@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CatBuild : Interactable
 {
-    [SerializeField]
-    private LayerMask mask;
+
     // Start is called before the first frame update
     void Start()
     {
+        mask = LayerMask.GetMask("Build");
         promptMessage = "Place Cat Here :)";
     }
 
@@ -30,11 +30,19 @@ public class CatBuild : Interactable
                 else
                 {
                     wrong();
+                    Destroy(hitInfo.transform.gameObject);
+                    StartCoroutine(ShowMessage());
                 }
-
+            }
+            else
+            {
+                wrong();
             }
         }
-
+        else
+        {
+            wrong();
+        }
     }
 
     protected override void Interact()

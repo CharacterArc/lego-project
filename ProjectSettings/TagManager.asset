@@ -7,6 +7,13 @@ TagManager:
   - BrickPlaced(Clone)
   - cat(Clone)
   - BuildBlock
+  - roundTree(Clone)
+  - fence(Clone)
+  - constructionSign(Clone)
+  - redFlower(Clone)
+  - tallTree(Clone)
+  - yellowFlower(Clone)
+  - flag(Clone)
   layers:
   - Default
   - TransparentFX

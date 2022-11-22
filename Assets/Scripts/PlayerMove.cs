@@ -29,25 +29,23 @@ public class PlayerMove : MonoBehaviour
     // Player move variables.
 
     [SerializeField]
-    private float walkSpeed; // Walk (normal movement) speed, set in editor.
+    private float walkSpeed; 
     [SerializeField]
-    private float runSpeed; // Run speed, set in editor.
-
-    private float currentSpeed; // Stores current movement speed.
-
-    [SerializeField]
-    private KeyCode runKey; // Run key, set in editor.
+    private float runSpeed; 
+    private float currentSpeed;
 
     [SerializeField]
-    private KeyCode upKey; // Up key, set in editor.
+    private KeyCode runKey; 
+    [SerializeField]
+    private KeyCode upKey; 
 
     [SerializeField]
-    private KeyCode downKey; // Down key, set in editor.
+    private KeyCode downKey; 
 
-    private CharacterController cc; // Reference to attached CharacterController.
+    private CharacterController cc; 
 
     [SerializeField]
-    public Camera playerCamera; // Player cam, set in editor.
+    public Camera playerCamera; 
 
     private void Start()
     {
@@ -61,16 +59,15 @@ public class PlayerMove : MonoBehaviour
         mX += Input.GetAxis("Mouse X") * rotSpeedX * (Time.deltaTime * rotDamp);
         mY += -Input.GetAxis("Mouse Y") * rotSpeedY * (Time.deltaTime * rotDamp);
 
-        // Clamp Y so player can't 'flip'.
+        
         mY = Mathf.Clamp(mY, -80, 80);
 
-        // Adjust rotation of camera and player's body.
-        // Rotate the camera on its X axis for up / down camera movement.
+        
         playerCamera.transform.localEulerAngles = new Vector3(mY, 0f, 0f);
-        // Rotate the player's body on its Y axis for left / right camera movement.
+        
         transform.eulerAngles = new Vector3(0f, mX, 0f);
 
-        // Get Hor and Ver input.
+        
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
 
@@ -78,18 +75,17 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(upKey)) elevation = 1;
         if (Input.GetKey(downKey)) elevation = -1;
 
-        // Set speed to walk speed.
+        
         currentSpeed = walkSpeed;
-        // If player is pressing run key and moving forward, set speed to run speed.
+        
         if (Input.GetKey(runKey) && Input.GetKey(KeyCode.W)) currentSpeed = runSpeed;
 
-        // Get new move position based off input.
+        
         Vector3 moveDir = (transform.right * hor) + (transform.forward * ver) + (transform.up * elevation) ;
 
-        // Move CharController. 
-        // .Move will not apply gravity, use SimpleMove if you want gravity.
+        
         cc.Move(moveDir * currentSpeed * Time.deltaTime);
 
-        //Press enter button -> if correct blocks are in place then game win else reset game from scratch.
+        
     }
 }
